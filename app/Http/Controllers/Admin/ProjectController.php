@@ -11,7 +11,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Type;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {

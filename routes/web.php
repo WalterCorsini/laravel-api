@@ -38,4 +38,5 @@ Route::middleware('auth')
         Route::resource('types', TypeController::class);
     });
 
+
 require __DIR__ . '/auth.php';

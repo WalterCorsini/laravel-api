@@ -16,4 +16,5 @@ use App\Http\Controllers\Api\ProjectController;
 */
 
 Route::get('/project', [ProjectController::class,'index']);
+Route::get('/show/{project}', [ProjectController::class,'show']);
 
