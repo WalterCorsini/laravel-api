@@ -42,21 +42,28 @@ const btnDeleteElem = document.getElementById('btnDelete');
 const inputElem = document.getElementById('cover_image');
 
 //listen change
-inputElem.addEventListener('change',function(e){
-    //istanzia nuovo oggetto FileReader( è un api che ha dei metodi per legere il contenuto dei file.)
-    const reader = new FileReader();
-    // use callback function to read input
-    reader.onload = function() {
-        //reader value in src on tag img
-        imgElem.src = reader.result;
-        // remove and add class "hide" (button remove,image preview, old image preview)
-        imgElem.classList.remove('hide');
-        btnDeleteElem.classList.remove('hide');
-        oldImgElem.classList.add('hide');
-    };
-    // convert string in url for direcory image
-    reader.readAsDataURL(e.target.files[0]);
-});
+function pippo(){
+    console.log("ciao");
+}
+if(inputElem){
+    inputElem.addEventListener('change', function(e) {
+        // Istanzia nuovo oggetto FileReader (è un API che ha dei metodi per leggere il contenuto dei file).
+        const reader = new FileReader();
+
+        // Usa la funzione callback per leggere l'input
+        reader.onload = function() {
+            // Imposta il valore del reader nella src dell'tag img
+            imgElem.src = reader.result;
+            // Rimuove e aggiunge la classe "hide" (bottoni rimuovere, anteprima immagine, vecchia anteprima immagine)
+            imgElem.classList.remove('hide');
+            btnDeleteElem.classList.remove('hide');
+            oldImgElem.classList.add('hide');
+        };
+
+        // Converte la stringa in URL per la directory dell'immagine
+        reader.readAsDataURL(e.target.files[0]);
+    });
+}
 
 // remove btn to reset input value and add class hide
 btnDeleteElem.addEventListener('click', function(e){

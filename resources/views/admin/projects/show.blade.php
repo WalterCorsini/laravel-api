@@ -64,12 +64,12 @@
                             </li>
 
                             {{-- show common technology if exists --}}
-                            @if (isset($technology->projects))
+                            @if (count($technology->projects)>1)
                                 <li>
 
                                     {{-- show count common project have the same technology --}}
                                     <strong>
-                                        tecnologia in comune anche con questi progetti {{ count($technology->projects) }} :
+                                        tecnologia in comune anche con questi progetti {{ count($technology->projects)-1 }} :
                                     </strong>
                                     {{-- /show count common project have the same technology --}}
                                 </li>

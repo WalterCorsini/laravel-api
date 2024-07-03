@@ -67,21 +67,18 @@
 
         {{-- technologies --}}
         <p>Tecnologie:</p>
-        <div class="d-flex gap-3">
-            {{-- @foreach ($technologyList as $curTechnology)
-                <label for="technology-{{ $curTechnology->id }}">{{ $curTechnology->name }}</label>
-                <input type="checkbox" id="technology-{{ $curTechnology->id }}" name="technologies[]"
-                    value="{{ $curTechnology->id }}">
-            @endforeach --}}
+        <div class="btn-group flex flex-wrap" role="group" aria-label="Basic checkbox toggle button group">
             @foreach ($technologyList as $curTechnology)
                 @if (old('technologies') !== null)
-                    <input type="checkbox" class="btn-check" id="tech-{{ $curTechnology->id }}" name="technologies[]"
+                    <input type="checkbox" class="btn-check w-25" id="tech-{{ $curTechnology->id }}" name="technologies[]"
                         value="{{ $curTechnology->id }}" @checked(in_array($curTechnology->id, old('technologies')))>
                 @else
-                    <input type="checkbox" id="tech-{{ $curTechnology->id }}" name="technologies[]"
+                    <input type="checkbox" class="btn-check w-25" id="tech-{{ $curTechnology->id }}" name="technologies[]"
                         value="{{ $curTechnology->id }}" @checked($project->technologies->contains($curTechnology))>
                 @endif
-                <label for="tech-{{ $curTechnology->id }}">{{ $curTechnology->name }}</label>
+
+                <label class="btn btn-outline-primary w-25"
+                    for="tech-{{ $curTechnology->id }}">{{ $curTechnology->name }}</label>
             @endforeach
         </div>
         {{-- technologies --}}
@@ -114,10 +111,10 @@
         @endif
 
         {{-- old and new img --}}
-        <div class="w-100 mt-2">
+        <div class="w-100 mt-2 img-container">
             <img id="oldImg" class="w-25" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
             <img id="imagePreview" class="w-25 hide" src="" alt="new-image">
-        </div class="img-container">
+        </div>
         {{-- /old and new img --}}
 
         {{-- button add and remove --}}

@@ -22,8 +22,8 @@ class ProjectController extends Controller
     {
         $value = $request->numberPage? $request->numberPage : 10;
         $projectsList = Project::withCount('technologies')
-                                 ->paginate($value)
-                                 ->appends(['numberPage' => $value]);
+                                ->paginate($value)
+                                ->appends(['numberPage' => $value]);
         return view('admin.projects.index', compact('projectsList'));
     }
 
@@ -109,7 +109,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         // syntactically correct because written explicitly even if the cascadeOnDelete() method placed on the foreign Key does so automatically
-        $project->technologies->detach();
         if ($project->cover_image) {
             Storage::delete($project->cover_image);
         }

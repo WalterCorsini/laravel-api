@@ -63,12 +63,21 @@
 
     {{-- technologies --}}
     <p>Tecnologie:</p>
-    <div class="d-flex gap-3">
+    <div class="btn-group flex flex-wrap" role="group" aria-label="Basic checkbox toggle button group">
+
         @foreach ($technologyList as $curTechnology)
-            <label for="technology-{{$curTechnology->id}}">{{ $curTechnology->name }}</label>
-            <input @checked(in_array($curTechnology->id,old('technologies',[])))
-                type="checkbox" id="technology-{{$curTechnology->id}}" name="technologies[]"
-                value="{{ $curTechnology->id }}">
+
+        <input @checked(in_array($curTechnology->id, old('technologies',[])))
+                class="btn-check w-25" type="checkbox" id="technology-{{ $curTechnology->id }}"
+                name="technologies[]" value="{{ $curTechnology->id }}" >
+
+        <label class="btn btn-outline-primary w-25" for="technology-{{ $curTechnology->id }}">
+            {{ $curTechnology->name }}
+        </label>
+
+
+
+
         @endforeach
     </div>
     {{-- technologies --}}

@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->string('description')->nullable();
+            $table->unsignedBigInteger('type_id')->nullable();
+            $table->string('cover_image')->nullable();
             $table->string('slug')->unique();
+            $table->softDeletes();
             $table->timestamps();
+            $table->foreign('type_id')->references('id')->on('types')->constrained()->nullOnDelete();
         });
     }
 
