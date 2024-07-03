@@ -14,7 +14,7 @@ class ProjectController extends Controller
     {
         $data =[
             'result' => 'success',
-            'response' => Project::with(['type','technologies'])->paginate(12),
+            'response' => Project::with(['type'])->withCount(['technologies'])->paginate(12),
         ];
         return response()->json($data);
     }

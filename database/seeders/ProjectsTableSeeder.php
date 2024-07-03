@@ -17,7 +17,7 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-       
+
         $arrayTypes = [
             [
                 'name'  => 'Data Scientist',
@@ -105,7 +105,7 @@ for ($i = 0; $i < 50; $i++) {
     $project->type_id = $faker->numberBetween(1, count($arrayTypes));
     $project->description = $faker->text(255);
     $project->slug = Str::slug($project->title);
-    $project->cover_image = $faker->imageUrl();
+    $project->cover_image = NULL;
     $project->save();
     }
 }
