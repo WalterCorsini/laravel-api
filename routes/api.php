@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,6 @@ use App\Http\Controllers\Api\ProjectController;
 
 Route::get('/project', [ProjectController::class,'index']);
 Route::get('/show/{project}', [ProjectController::class,'show']);
+
+route::post('/leads', [LeadController::class, 'store']);
 

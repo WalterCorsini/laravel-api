@@ -84,10 +84,10 @@
         {{-- technologies --}}
 
         {{-- file --}}
+
         <label for="cover_image"> Immagine</label>
         <input
             class="form-control
-
         {{-- dynamic class with red border --}}
         @error('cover_image')
             is-invalid
@@ -106,23 +106,30 @@
 
         {{-- check remove image --}}
         @if ($project->cover_image !== null)
-            <label for="removeImage">Rimuovi immagine :</label>
-            <input type="checkbox" id="removeImage" name="removeImage">
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input class="btn-check" type="checkbox" id="removeImage" name="removeImage">
+                <label class="btn btn-outline-primary mt-3" for="removeImage">Rimuovi immagine :</label>
+            </div>
         @endif
+        {{-- /check remove image --}}
 
         {{-- old and new img --}}
-        <div class="w-100 mt-2 img-container">
-            <img id="oldImg" class="w-25" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
-            <img id="imagePreview" class="w-25 hide" src="" alt="new-image">
-        </div>
-        {{-- /old and new img --}}
+        <div class="container-preview">
 
-        {{-- button add and remove --}}
-        <div>
-            <button class="btn btn-success mt-3 w-25" type="submit">Aggiorna</button>
-            <a id="btnDelete" class="btn btn-danger mt-3 hide w-25">rimuovi</a>
+            <div class="mt-2 img-container w-100">
+                <img id="oldImg" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
+                <img id="imagePreview" class="hide" src="" alt="new-image">
+            </div>
+            {{-- /old and new img --}}
+
+            {{-- button add and remove --}}
+            <div>
+                <button class="btn btn-success mt-3 w-25" type="submit">Aggiorna</button>
+                <a id="btnDelete" class="btn btn-danger mt-3 hide w-25">rimuovi</a>
+            </div>
+            {{-- /button add and remove --}}
+
         </div>
-        {{-- /button add and remove --}}
 
 
 
