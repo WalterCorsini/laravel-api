@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\LeadController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Route::middleware('auth')
         Route::post('/projects/restoreall', [ProjectController::class, 'restoreall'])->name('projects.restoreall');
 
         Route::resource('types', TypeController::class);
+
+        Route::resource('leads', LeadController::class)->only(['index','show','update']);
     });
 
 

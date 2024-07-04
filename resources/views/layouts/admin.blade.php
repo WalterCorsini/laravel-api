@@ -65,6 +65,12 @@
                             </li>
                             {{-- link pagina projects --}}
                             <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.leads.index') }}">
+                                    <i class="fa-solid fa-user"></i> Contact
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('admin.projects.index') }}">
                                     <i class="fa-solid fa-home"></i> Home/Projects
                                 </a>
