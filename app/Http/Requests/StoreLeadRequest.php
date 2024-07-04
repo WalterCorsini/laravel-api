@@ -25,8 +25,19 @@ class StoreLeadRequest extends FormRequest
             'name'          => ['required','string','min:3','max:30'],
             'lastname'      => ['required','string','min:3','max:30'],
             'email'         => ['required','email'],
-            'phone_number'  => ['required'],
+            'phone_number'  => ['required','integer','min:9'],
             'message'       => ['required','string','min:30','max:65535'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required'              => 'Il campo :attribute è vuoto',
+            'min'                   => 'devi inserire un minimo di :min caratteri',
+            'max'                   => 'devi inserire un massimo di :min caratteri',
+            'integer'               => 'il telefono non puo avere caratteri. solo numeri',
+            'email'                 => 'il campo email non è corretto',
         ];
     }
 }
