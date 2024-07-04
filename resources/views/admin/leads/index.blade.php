@@ -7,7 +7,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Nome &DownArrow; Detail</th>
+                <th scope="col">Nome</th>
                 <th scope="col">Cognome</th>
                 <th scope="col">Created_at</th>
                 <th scope="col">Status</th>
