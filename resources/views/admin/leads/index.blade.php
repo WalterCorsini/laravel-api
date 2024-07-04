@@ -9,22 +9,19 @@
             <tr>
                 <th scope="col">Nome &DownArrow; Detail</th>
                 <th scope="col">Cognome</th>
-                <th scope="col">Email</th>
                 <th scope="col">Created_at</th>
                 <th scope="col">Status</th>
+                <th scope="col">Dettagli</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($leads as $lead)
                 <tr>
                     <td>
-                        <a  class="text-black" href="{{ route('admin.leads.show', ['lead' => $lead->id]) }}">
-                            {{ $lead->name }}
-                        </a>
+                        {{ $lead->name }}
                     </td>
 
                     <td>{{ $lead->lastname }}</td>
-                    <td>{{ $lead->email }}</td>
                     <td>{{ $lead->created_at }}</td>
                     <td>
                         <form action="{{ route('admin.leads.update', ['lead' => $lead->id]) }}" method="POST">
@@ -39,8 +36,12 @@
                                 </option>
                             </select>
                             <button type="submit" class="btn btn-success">&check;</button>
-                            {{ $lead->created_at }}
                         </form>
+                    </td>
+                    <td>
+                        <a class="text-black btn btn-info" href="{{ route('admin.leads.show', ['lead' => $lead->id]) }}">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
                     </td>
                 </tr>
 
