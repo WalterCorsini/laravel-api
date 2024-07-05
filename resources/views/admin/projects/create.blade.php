@@ -75,9 +75,6 @@
             {{ $curTechnology->name }}
         </label>
 
-
-
-
         @endforeach
     </div>
     {{-- technologies --}}

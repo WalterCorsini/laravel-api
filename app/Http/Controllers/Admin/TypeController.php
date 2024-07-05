@@ -54,7 +54,8 @@ class TypeController extends Controller
      */
     public function edit($type)
     {
-        $element = Type::where('id',$type)->first();
+        // $element = Type::where('id',$type)->first();
+        $element = Type::whereId($type);
         $typeList = Type::all();
         return view('admin.types.edit',compact('element','typeList'));
     }
@@ -65,7 +66,7 @@ class TypeController extends Controller
     public function update(UpdateTypeRequest $request, $type)
     {
         $data = $request->validated();
-        $element = Type::where('id',$type)->first();
+        $element = Type::whereId($type);
         $element->fill($data);
         $element->save();
         return redirect()->route('admin.types.index');

@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class LeadController extends Controller
 {
-    public function store(StoreLeadRequest $request)
-    {
+    public function store(StoreLeadRequest $request){
         $data = $request->validated();
         $lead = new Lead();
         $lead->name = $data['name'];
@@ -21,11 +20,12 @@ class LeadController extends Controller
         $lead->email = $data['email'];
         $lead->message = $data['message'];
         $lead->save();
-        // Mail::to('email@esempio.com')->send(new NewContact($lead));
+        Mail::to('email@esempio.com')->send(new NewContact($lead));
         return response()->json([
             'result'=> $lead
         ]);
     }
+
 }
 
 

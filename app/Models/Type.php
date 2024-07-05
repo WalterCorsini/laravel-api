@@ -9,7 +9,14 @@ class Type extends Model
 {
     use HasFactory;
     protected $fillable = ['name','color'];
+
+    // relations
     public function projects(){
         return $this->hasMany(Project::class);
+    }
+
+    //QueryScopes
+    public function scopeWhereId($query, $id){
+        return $query->where('id', $id)->first();
     }
 }

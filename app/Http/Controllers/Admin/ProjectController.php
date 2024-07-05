@@ -48,7 +48,7 @@ class ProjectController extends Controller
         if (isset($data['cover_image'])) {
             $newItem->cover_image = Storage::put('img', $data['cover_image']);
         }
-        $newItem->slug = Str::slug($newItem->title);
+        // $newItem->slug = Str::slug($newItem->title);
         $newItem->save();
 
         if($request->has('technologies')){
@@ -73,6 +73,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $typeList = Type::All();
+        
         $technologyList = Technology::All();
         return view('admin.projects.edit', compact('project','typeList','technologyList'));
     }
@@ -97,7 +98,7 @@ class ProjectController extends Controller
         }
         // /remove image without add other
 
-        $data['slug'] = Str::slug($data['title']);
+        // $data['slug'] = Str::slug($data['title']);
         $project->update($data);
         $project->technologies()->sync($request->technologies);
         return view('admin.projects.show', compact('project'));

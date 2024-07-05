@@ -1,6 +1,4 @@
-@extends('layouts.guest')
 
-@section('content')
 <dt>
     mittente:
 </dt>
@@ -28,4 +26,4 @@
 <dd>
    {{ $lead->message }}
 </dd>
-@endsection
+
