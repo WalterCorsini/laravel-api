@@ -12,16 +12,13 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Project::with(['type','technologies']);
-        // ->withCount(['technologies']);
+        $query = Project::with(['type','technologies'])->withCount(['technologies']);
 
         if($request->type_id){
             $query->where('type_id', $request->type_id);
         }
-        if($request->technology_id){
-            $query->whereHas('technologies', function ($query) use ($request) {
-                $query->where('technology_id', $request->technology_id);
-            });
+        if ($request->has('technology_id')) {
+            $query->filterByTechnologyId($request->technology_id);
         }
         $query = $query->paginate(12);
         $data =[

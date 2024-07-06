@@ -33,9 +33,16 @@ class Project extends Model
         return $query->where('created_at', '>=', Carbon::now()->subDay(2));
     }
 
+    public function scopeFilterByTechnologyId($query, $technologyId)
+    {
+        return $query->whereHas('technologies', function ($query) use ($technologyId) {
+            $query->where('technology_id', $technologyId);
+        });
+    }
+}
     // // Accessor
     // public function getCoverImageAttribute($cover_image){
     //      return $this->attributes['cover_image'] = asset("storage/$cover_image");
     //  }
 
-}
+
