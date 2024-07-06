@@ -15,7 +15,7 @@
             <option value="15" @selected($projectsList->perPage() == 15)>15</option>
         </select>
 
-        <button type="submit" class="ms-3">Filtra</button>
+        <button type="submit" class="ms-3 rounded-5 btn btn-outline-info text-black">Filtra</button>
     </form>
 </div>
 {{-- /select page --}}

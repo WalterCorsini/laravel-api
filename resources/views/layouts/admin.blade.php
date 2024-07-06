@@ -65,7 +65,7 @@
                             </li>
                             {{-- link pagina projects --}}
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('admin.leads.index') }}">
+                                <a class="nav-link text-info" href="{{ route('admin.leads.index') }}">
                                     <i class="fa-solid fa-user"></i> Contact
                                 </a>
                             </li>
@@ -87,12 +87,12 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="{{ route('admin.types.index') }}">
-                                    <i class="fa-solid fa-home"></i> Type
+                                    <i class="fa-solid fa-tag"></i> Type
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="{{ route('admin.types.create') }}">
-                                    <i class="fa-solid fa-home"></i> Add/Type
+                                    <i class="fa-solid fa-plus"></i> Add/Type
                                 </a>
                             </li>
 
