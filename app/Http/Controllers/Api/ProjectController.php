@@ -10,11 +10,23 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $query = Project::with(['type','technologies']);
+        // ->withCount(['technologies']);
+
+        if($request->type_id){
+            $query->where('type_id', $request->type_id);
+        }
+        if($request->technology_id){
+            $query->whereHas('technologies', function ($query) use ($request) {
+                $query->where('technology_id', $request->technology_id);
+            });
+        }
+        $query = $query->paginate(12);
         $data =[
             'result' => 'success',
-            'response' => Project::with(['type'])->withCount(['technologies'])->paginate(12),
+            'response' => $query,
         ];
         return response()->json($data);
     }

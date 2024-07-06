@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\LeadController;
+use App\Http\Controllers\Api\TechnologyController;
 use App\Http\Controllers\Api\TypeController;
 
 /*
@@ -23,4 +24,6 @@ Route::get('/show/{project}', [ProjectController::class,'show']);
 route::post('/leads', [LeadController::class, 'store']);
 
 route::get('/types', [TypeController::class,'index']);
+
+route::get('/technologies', [TechnologyController::class,'index']);
 

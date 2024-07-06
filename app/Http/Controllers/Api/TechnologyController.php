@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Technology;
 use Illuminate\Http\Request;
-use App\Models\Type;
 
-class TypeController extends Controller
+class TechnologyController extends Controller
 {
     public function index()
     {
-        $data = Type::all('id','name');
+        $data = Technology::all('id','name');
         return response()->json([
             'results' => $data,
         ]);
